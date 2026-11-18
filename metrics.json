@@ -1,0 +1,485 @@
+{
+  "data_quality": {
+    "rows": 10000,
+    "columns": 14,
+    "missing_values": 0,
+    "duplicate_rows": 0,
+    "duplicate_customer_ids": 0,
+    "churn_rate": 0.2037
+  },
+  "split": {
+    "train_rows": 8000,
+    "test_rows": 2000,
+    "train_churn_rate": 0.2037,
+    "test_churn_rate": 0.2035
+  },
+  "models": {
+    "Logistic Regression": {
+      "cv_auc_mean": 0.8319,
+      "cv_auc_std": 0.0119,
+      "accuracy": 0.758,
+      "precision": 0.4441,
+      "recall": 0.7518,
+      "f1": 0.5584,
+      "roc_auc": 0.837
+    },
+    "Decision Tree": {
+      "cv_auc_mean": 0.8285,
+      "cv_auc_std": 0.0087,
+      "accuracy": 0.763,
+      "precision": 0.4525,
+      "recall": 0.7838,
+      "f1": 0.5737,
+      "roc_auc": 0.8417
+    },
+    "Random Forest": {
+      "cv_auc_mean": 0.8568,
+      "cv_auc_std": 0.0106,
+      "accuracy": 0.8275,
+      "precision": 0.5628,
+      "recall": 0.683,
+      "f1": 0.6171,
+      "roc_auc": 0.8608
+    },
+    "Gradient Boosting": {
+      "cv_auc_mean": 0.8616,
+      "cv_auc_std": 0.0082,
+      "accuracy": 0.8685,
+      "precision": 0.7812,
+      "recall": 0.4914,
+      "f1": 0.6033,
+      "roc_auc": 0.8695
+    },
+    "XGBoost": {
+      "cv_auc_mean": 0.8627,
+      "cv_auc_std": 0.0111,
+      "accuracy": 0.8115,
+      "precision": 0.5257,
+      "recall": 0.7543,
+      "f1": 0.6196,
+      "roc_auc": 0.8687
+    }
+  },
+  "best_model": "Gradient Boosting",
+  "thresholds": {
+    "default_0.50": {
+      "threshold": 0.5,
+      "accuracy": 0.8685,
+      "precision": 0.7812,
+      "recall": 0.4914,
+      "f1": 0.6033,
+      "tp": 200,
+      "fp": 56,
+      "fn": 207,
+      "tn": 1537,
+      "flagged": 256
+    },
+    "f1_optimal": {
+      "threshold": 0.361,
+      "accuracy": 0.858,
+      "precision": 0.6694,
+      "recall": 0.5971,
+      "f1": 0.6312,
+      "tp": 243,
+      "fp": 120,
+      "fn": 164,
+      "tn": 1473,
+      "flagged": 363
+    },
+    "precision_70": {
+      "threshold": 0.413,
+      "accuracy": 0.8645,
+      "precision": 0.7086,
+      "recall": 0.5676,
+      "f1": 0.6303,
+      "tp": 231,
+      "fp": 95,
+      "fn": 176,
+      "tn": 1498,
+      "flagged": 326
+    }
+  },
+  "lift": [
+    {
+      "decile": 1,
+      "min_prob": 0.588,
+      "churn_rate": 0.86,
+      "cum_capture": 0.4226
+    },
+    {
+      "decile": 2,
+      "min_prob": 0.325,
+      "churn_rate": 0.415,
+      "cum_capture": 0.6265
+    },
+    {
+      "decile": 3,
+      "min_prob": 0.205,
+      "churn_rate": 0.275,
+      "cum_capture": 0.7617
+    },
+    {
+      "decile": 4,
+      "min_prob": 0.149,
+      "churn_rate": 0.155,
+      "cum_capture": 0.8378
+    },
+    {
+      "decile": 5,
+      "min_prob": 0.104,
+      "churn_rate": 0.12,
+      "cum_capture": 0.8968
+    },
+    {
+      "decile": 6,
+      "min_prob": 0.075,
+      "churn_rate": 0.075,
+      "cum_capture": 0.9337
+    },
+    {
+      "decile": 7,
+      "min_prob": 0.054,
+      "churn_rate": 0.055,
+      "cum_capture": 0.9607
+    },
+    {
+      "decile": 8,
+      "min_prob": 0.035,
+      "churn_rate": 0.03,
+      "cum_capture": 0.9754
+    },
+    {
+      "decile": 9,
+      "min_prob": 0.021,
+      "churn_rate": 0.035,
+      "cum_capture": 0.9926
+    },
+    {
+      "decile": 10,
+      "min_prob": 0.008,
+      "churn_rate": 0.015,
+      "cum_capture": 1.0
+    }
+  ],
+  "feature_importance": {
+    "Age": 0.3475,
+    "NumOfProducts": 0.1767,
+    "MultiProduct3Plus": 0.0805,
+    "Balance": 0.0666,
+    "EngagementProduct": 0.0643,
+    "Geography_Germany": 0.0551,
+    "IsActiveMember": 0.0435,
+    "BalanceSalaryRatio": 0.0403,
+    "EstimatedSalary": 0.0374,
+    "CreditScore": 0.0328,
+    "TenureAgeRatio": 0.0143,
+    "AgeTenure": 0.014,
+    "Gender_Male": 0.0135,
+    "ProductDensity": 0.0086,
+    "HasCrCard": 0.0023,
+    "ZeroBalance": 0.0016,
+    "Geography_Spain": 0.0008,
+    "Tenure": 0.0002
+  },
+  "shap_importance": {
+    "Age": 0.72,
+    "NumOfProducts": 0.6918,
+    "Geography_Germany": 0.2523,
+    "Gender_Male": 0.2274,
+    "EngagementProduct": 0.1878,
+    "IsActiveMember": 0.1691,
+    "Balance": 0.1162,
+    "BalanceSalaryRatio": 0.1112,
+    "MultiProduct3Plus": 0.1064,
+    "EstimatedSalary": 0.096,
+    "CreditScore": 0.0749,
+    "ZeroBalance": 0.0738,
+    "TenureAgeRatio": 0.0634,
+    "AgeTenure": 0.0411,
+    "ProductDensity": 0.0355,
+    "HasCrCard": 0.0203,
+    "Geography_Spain": 0.0178,
+    "Tenure": 0.0016
+  },
+  "logreg_coefficients": {
+    "IsActiveMember": -1.1458,
+    "TenureAgeRatio": -0.9848,
+    "NumOfProducts": -0.9107,
+    "AgeTenure": -0.8561,
+    "Gender_Male": -0.5403,
+    "HasCrCard": -0.1135,
+    "CreditScore": -0.0851,
+    "EstimatedSalary": 0.0497,
+    "ProductDensity": 0.0965,
+    "Balance": 0.1059,
+    "Geography_Spain": 0.106,
+    "BalanceSalaryRatio": 0.1431,
+    "EngagementProduct": 0.1631,
+    "ZeroBalance": 0.2014,
+    "Age": 0.7625,
+    "Geography_Germany": 0.9475,
+    "Tenure": 1.6536,
+    "MultiProduct3Plus": 5.5968
+  },
+  "risk_bands": {
+    "Low": {
+      "customers": 7848,
+      "actual_churn": 0.0785,
+      "balance": 568620247.16
+    },
+    "Medium": {
+      "customers": 1136,
+      "actual_churn": 0.4569,
+      "balance": 102501988.11
+    },
+    "High": {
+      "customers": 1016,
+      "actual_churn": 0.8878,
+      "balance": 93736657.61
+    }
+  },
+  "eda": {
+    "Geography": {
+      "France": {
+        "churn_rate": 0.1615,
+        "n": 5014
+      },
+      "Germany": {
+        "churn_rate": 0.3244,
+        "n": 2509
+      },
+      "Spain": {
+        "churn_rate": 0.1667,
+        "n": 2477
+      }
+    },
+    "Gender": {
+      "Female": {
+        "churn_rate": 0.2507,
+        "n": 4543
+      },
+      "Male": {
+        "churn_rate": 0.1646,
+        "n": 5457
+      }
+    },
+    "NumOfProducts": {
+      "1": {
+        "churn_rate": 0.2771,
+        "n": 5084
+      },
+      "2": {
+        "churn_rate": 0.0758,
+        "n": 4590
+      },
+      "3": {
+        "churn_rate": 0.8271,
+        "n": 266
+      },
+      "4": {
+        "churn_rate": 1.0,
+        "n": 60
+      }
+    },
+    "IsActiveMember": {
+      "0": {
+        "churn_rate": 0.2685,
+        "n": 4849
+      },
+      "1": {
+        "churn_rate": 0.1427,
+        "n": 5151
+      }
+    },
+    "HasCrCard": {
+      "0": {
+        "churn_rate": 0.2081,
+        "n": 2945
+      },
+      "1": {
+        "churn_rate": 0.2018,
+        "n": 7055
+      }
+    },
+    "Tenure": {
+      "0": {
+        "churn_rate": 0.23,
+        "n": 413
+      },
+      "1": {
+        "churn_rate": 0.2242,
+        "n": 1035
+      },
+      "2": {
+        "churn_rate": 0.1918,
+        "n": 1048
+      },
+      "3": {
+        "churn_rate": 0.2111,
+        "n": 1009
+      },
+      "4": {
+        "churn_rate": 0.2053,
+        "n": 989
+      },
+      "5": {
+        "churn_rate": 0.2065,
+        "n": 1012
+      },
+      "6": {
+        "churn_rate": 0.2027,
+        "n": 967
+      },
+      "7": {
+        "churn_rate": 0.1722,
+        "n": 1028
+      },
+      "8": {
+        "churn_rate": 0.1922,
+        "n": 1025
+      },
+      "9": {
+        "churn_rate": 0.2165,
+        "n": 984
+      },
+      "10": {
+        "churn_rate": 0.2061,
+        "n": 490
+      }
+    },
+    "AgeBand": {
+      "18-29": {
+        "churn_rate": 0.0756,
+        "n": 1641
+      },
+      "30-39": {
+        "churn_rate": 0.1088,
+        "n": 4346
+      },
+      "40-49": {
+        "churn_rate": 0.3079,
+        "n": 2618
+      },
+      "50-59": {
+        "churn_rate": 0.5604,
+        "n": 869
+      },
+      "60+": {
+        "churn_rate": 0.2795,
+        "n": 526
+      }
+    },
+    "BalanceBand": {
+      "0": {
+        "churn_rate": 0.1382,
+        "n": 3617
+      },
+      "0-50k": {
+        "churn_rate": 0.3467,
+        "n": 75
+      },
+      "50-100k": {
+        "churn_rate": 0.1988,
+        "n": 1509
+      },
+      "100-150k": {
+        "churn_rate": 0.2577,
+        "n": 3830
+      },
+      "150k+": {
+        "churn_rate": 0.2312,
+        "n": 969
+      }
+    },
+    "CreditBand": {
+      "<580": {
+        "churn_rate": 0.2202,
+        "n": 2362
+      },
+      "580-669": {
+        "churn_rate": 0.2056,
+        "n": 3331
+      },
+      "670-739": {
+        "churn_rate": 0.1862,
+        "n": 2428
+      },
+      "740-799": {
+        "churn_rate": 0.2059,
+        "n": 1224
+      },
+      "800+": {
+        "churn_rate": 0.1954,
+        "n": 655
+      }
+    },
+    "active_x_products": {
+      "active=0|products=1": {
+        "churn_rate": 0.3665,
+        "n": 2521
+      },
+      "active=0|products=2": {
+        "churn_rate": 0.0989,
+        "n": 2144
+      },
+      "active=0|products=3": {
+        "churn_rate": 0.8824,
+        "n": 153
+      },
+      "active=0|products=4": {
+        "churn_rate": 1.0,
+        "n": 31
+      },
+      "active=1|products=1": {
+        "churn_rate": 0.1892,
+        "n": 2563
+      },
+      "active=1|products=2": {
+        "churn_rate": 0.0556,
+        "n": 2446
+      },
+      "active=1|products=3": {
+        "churn_rate": 0.7522,
+        "n": 113
+      },
+      "active=1|products=4": {
+        "churn_rate": 1.0,
+        "n": 29
+      }
+    },
+    "geo_x_active": {
+      "France|active=0": 0.2113,
+      "France|active=1": 0.115,
+      "Germany|active=0": 0.4108,
+      "Germany|active=1": 0.2372,
+      "Spain|active=0": 0.2335,
+      "Spain|active=1": 0.1075
+    },
+    "means_by_class": {
+      "Age": {
+        "0": 37.41,
+        "1": 44.84
+      },
+      "Balance": {
+        "0": 72745.3,
+        "1": 91108.54
+      },
+      "CreditScore": {
+        "0": 651.85,
+        "1": 645.35
+      },
+      "Tenure": {
+        "0": 5.03,
+        "1": 4.93
+      },
+      "EstimatedSalary": {
+        "0": 99738.39,
+        "1": 101465.68
+      },
+      "NumOfProducts": {
+        "0": 1.54,
+        "1": 1.48
+      }
+    }
+  }
+}
